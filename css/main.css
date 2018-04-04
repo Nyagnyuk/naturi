@@ -1765,3 +1765,6 @@ body {
       margin-left: 15px; }
     .reason__item-title {
       color: #fff; }
+
+del {
+  color: green; }
