@@ -1,0 +1,350 @@
+//----------------------------------------------------//
+// Inputs & Form & Controls				       		  //
+//----------------------------------------------------//
+fieldset {
+  display: block;
+  text-align: center;
+}
+
+label {
+  display: block;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// Inputs
+//----------------------------------------------------//
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+textarea,
+select,
+.input {
+  background-color: #fff;
+  border: 1px solid #bcbcbc;
+  color: $mainFontColor;
+  font-size: $mainFontSize;
+  line-height: $mainFontHeight;
+  padding: 4px 10px;
+  width: 100%;
+  display: block;
+  //transition: all .3s ease-in-out;
+  -webkit-appearance: none;
+  border-radius: 0;
+  @include placeholderColor(#9c9c9c);
+  &:focus {
+    border-color: #696969;
+    background-color: #fff;
+  }
+  &.error {
+  }
+  &.disabled,
+  &[disabled="disabled"],
+  &[disabled] {
+    background-color: #f3f3f3;
+  }
+}
+
+textarea {
+  height: 150px;
+}
+
+input[type="file"] {
+  display: none;
+  & + label {
+    display: block;
+    background: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 25px 15px;
+    color: #969696;
+    text-align: center;
+    border: 1px dashed #c4c4c4;
+    transition: .2s ease-in-out;
+    &:hover {
+      border-color: #696969;
+      background: #e9e9e9;
+    }
+  }
+}
+
+//----------------------------------------------------//
+// SELECT [INPUT]																			//
+//----------------------------------------------------//
+select {
+  display: block;
+  @include clearSelect;
+  transition: none;
+  background-position: right 25px center;
+  background-repeat: no-repeat;
+  background-image: url('../img/sprite/retina/2x/select-down.png');
+  background-size: 29px 17px;
+  background-color: #fff;
+  &:focus {
+    background-image: url('../img/sprite/retina/2x/select-up.png');
+  }
+}
+
+.ui-front {
+  z-index: 9999;
+}
+
+.ui-selectmenu-button {
+  border: 1px solid #939393;
+  border-radius: 0;
+  background: #f3f3f3;
+  color: #282828;
+  &[aria-expanded="true"] {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 1px solid #8e8e8e;
+    span.ui-icon-triangle-1-s {
+    }
+  }
+  span.ui-selectmenu-text {
+    padding: 10px 15px 9px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  span.ui-icon-triangle-1-s {
+    width: 45px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid #939393;
+    background: url('../img/icons/slct-open.png') center center no-repeat;
+    margin: 0;
+  }
+}
+
+.ui-selectmenu-menu {
+  .ui-widget-content {
+    border-radius: 0;
+    background: #f3f3f3;
+    color: #282828;
+    .ui-menu-item {
+      padding: 10px 15px 9px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      &.ui-state-focus {
+        border: 0;
+        margin: 0;
+        font-weight: inherit;
+      }
+    }
+  }
+}
+
+// Buttons
+//----------------------------------------------------//
+button,
+.btn {
+  text-align: center;
+  vertical-align: top;
+  font-weight: $mainFontWeight;
+  font-size: 14px;
+  line-height: $mainFontHeight;
+  padding: 12px 57px;
+  text-transform: uppercase;
+  background: $default;
+  color: #fff;
+  border: 0;
+  border-radius: 0;
+  position: relative;
+  transition: all .3s ease-in-out;
+  width: 100%;
+  display: block;
+  &:hover,
+  &.active {
+    color: #fff;
+    background: rgba(242,128,88,.7);
+    text-decoration: none;
+  }
+  &:focus {
+    position: relative;
+    //top: 1px;
+  }
+  &.disabled,
+  &[disabled="disabled"],
+  &[disabled] {
+    background: #ccc;
+    color: #aaa;
+    cursor: not-allowed;
+  }
+}
+
+// Checkbox
+//----------------------------------------------------//
+input[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+  & + label {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 0 0 30px;
+    position: relative;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 24px;
+    width: auto !important;
+    &:before, &:after {
+      position: absolute;
+      content: '';
+    }
+  }
+  &:not(:checked) + label {
+    &:before {
+    }
+  }
+  &:checked + label {
+    &:after {
+      opacity: 1;
+    }
+  }
+  &:disabled:checked + label {
+    &:before {
+    }
+  }
+  &:disabled:not(:checked) + label {
+    &:before {
+    }
+  }
+}
+
+// Radio
+//----------------------------------------------------//
+input[type="radio"] {
+  position: absolute;
+  left: -9999px;
+  & + label {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 0 0 30px;
+    position: relative;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 24px;
+    width: auto !important;
+    &:before, &:after {
+      position: absolute;
+      content: '';
+    }
+  }
+  &:not(:checked) + label {
+    &:before {
+    }
+  }
+  &:checked + label {
+    &:after {
+      opacity: 1;
+    }
+  }
+  &:disabled:checked + label {
+    &:before {
+    }
+  }
+  &:disabled:not(:checked) + label {
+    &:before {
+    }
+  }
+}
+
+//----------------------------------------------------//
+// JQUI => DATEPICKER																	//
+//----------------------------------------------------//
+.ui-datepicker {
+  width: 242px;
+  border-radius: 4px;
+  box-shadow: 0 0 2px #ccc;
+  padding: 10px !important;
+  display: none;
+  .ui-widget-header {
+    background: #fff;
+    border: 0;
+    border-radius: 0;
+    padding: 5px 35px 13px;
+    .ui-datepicker-prev, .ui-datepicker-next {
+      position: absolute;
+      font-family: 'mymobstr-pt';
+      top: 14px;
+      color: #9B9B9B;
+      font-size: 24px;
+      height: 24px;
+      width: 24px;
+      &:hover {
+        background: #fff;
+        border: 0;
+        text-decoration: none;
+      }
+    }
+    .ui-datepicker-prev {
+      left: 10px;
+      &:before {
+        content: '\e6fe';
+      }
+    }
+    .ui-datepicker-next {
+      right: 10px;
+      &:before {
+        content: '\e6ff';
+      }
+    }
+    .ui-datepicker-title {
+      color: #333;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 600;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+  .ui-datepicker-calendar {
+    margin: 0 -10px;
+    padding: 0 10px;
+  }
+  thead {
+    th {
+      font-size: 12px;
+      line-height: 16px;
+      color: #9B9B9B;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 0 0 6px;
+    }
+  }
+  tbody {
+    tr {
+      td {
+        .ui-state-default {
+          font-size: 12px;
+          line-height: 16px;
+          font-weight: 600;
+          padding: 5px 8px;
+          color: #333;
+          border: 0;
+          background: #fff;
+          display: block;
+          text-align: center;
+          &.ui-state-hover {
+            border: 0;
+            background: #eee;
+            text-decoration: none;
+          }
+          &.ui-state-highlight {
+            color: #fff;
+          }
+          &.ui-state-active {
+            background: #eee;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
